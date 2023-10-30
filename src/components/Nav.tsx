@@ -29,7 +29,7 @@ export default function Nav() {
         <a className="text-3xl font-semibold text-purple-500 h-[40px]" href="/">
           Links
         </a>
-        <div className="ml-12">
+        <div className="hidden lg:flex ml-12">
           {session?.user ? (
             <a href="/my" className="py-2 px-5 mx-2 hover:bg-white rounded">
               My

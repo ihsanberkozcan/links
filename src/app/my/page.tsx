@@ -1,6 +1,7 @@
 "use client";
 import Nav from "@/components/Nav";
 import { Links, MyObjectType, datatype, userdatatype } from "@/types/types";
+import { truncateText } from "@/utils/truncateText";
 
 import { useEffect, useRef, useState } from "react";
 
@@ -121,8 +122,8 @@ export default function MyPage() {
   return (
     <div className="">
       <Nav />
-      <div className="flex">
-        <div className="w-3/4">
+      <div className="flex flex-col lg:flex-row">
+        <div className="w-full lg:w-3/4">
           <div>
             <h2 className="text-2xl mt-5">Description</h2>
             <textarea
@@ -183,26 +184,27 @@ export default function MyPage() {
               <div className="flex flex-col justify-center mt-10">
                 {datas?.links?.map((data: Links, index: number) => (
                   <div
-                    className="flex justify-between w-full mb-3 bg-white px-10 py-5 rounded-lg drop-shadow-sm"
+                    className="flex justify-between w-full mb-3 bg-white px-2 py-2 lg:px-10 lg:py-5 rounded-lg drop-shadow-sm"
                     key={index}
                   >
                     <div className="w-full flex justify-center">
                       <div>
-                        <div className="ml-3 text-center w-full">
+                        <div className="ml-3 text-center w-full text-sm lg:text-lg">
                           {data.urlDesc}
                         </div>
                         <a
-                          className="ml-3 text-center flex justify-center items-center underline underline-offset-1 text-sky-500"
+                          className="ml-3 text-center text-xs lg:text-lg flex justify-center items-center underline underline-offset-1 text-sky-500"
                           href={data.url}
                         >
-                          <div>{data.url}</div>
+                          <div className="flex lg:hidden">{truncateText(data.url,30)}</div>
+                          <div className="hidden lg:flex">{data.url}</div>
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
                             viewBox="0 0 24 24"
                             stroke-width="1.5"
                             stroke="currentColor"
-                            className="w-4 h-4 "
+                            className="w-5 h-5 lg:h-6 lg:w-6"
                           >
                             <path
                               stroke-linecap="round"
@@ -214,14 +216,14 @@ export default function MyPage() {
                       </div>
                     </div>
                     <div className="flex">
-                      <div className="flex items-center mr-20">
+                      <div className="flex items-center">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke-width="1.5"
                           stroke="currentColor"
-                          className="w-6 h-6"
+                          className="w-5 h-5"
                         >
                           <path
                             stroke-linecap="round"
@@ -232,7 +234,7 @@ export default function MyPage() {
                         <span className="ml-1">{data.clickNumber}</span>
                       </div>
                       <button
-                        className="p-3 hover:text-red-500"
+                        className="p-3 text-red-400 transition duration-300 ease-in-out hover:text-red-600"
                         onClick={() => deleteLink(index)}
                       >
                         <svg
@@ -241,7 +243,7 @@ export default function MyPage() {
                           viewBox="0 0 24 24"
                           stroke-width="1.5"
                           stroke="currentColor"
-                          className="w-6 h-6"
+                          className="w-5 h-5 lg:h-6 lg:w-6"
                         >
                           <path
                             stroke-linecap="round"
@@ -261,7 +263,7 @@ export default function MyPage() {
             )}
           </div>
         </div>
-        <div className="ml-10 w-1/4">
+        <div className="lg:ml-10 w-full lg:w-1/4">
           <div className="ml-auto w-fit">
             <a
               href={`/${userData.username}`}
@@ -285,13 +287,13 @@ export default function MyPage() {
             </a>
           </div>
 
-          <div className="px-1.5 py-2.5 bg-slate-500 rounded-xl">
+          <div className="p-3 bg-slate-700 rounded-3xl">
             {userData.username && loading ? (
               <iframe
                 key={iframeKey}
                 ref={mobile}
                 src={`/${userData.username}`}
-                className="rounded-lg w-full"
+                className="rounded-2xl w-full"
                 style={{ height: `${mobileHeight}px` }}
               ></iframe>
             ) : (
