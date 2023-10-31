@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Provider>
-          <main className="min-h-screen bg-gradient-to-tl to-rose-100 from-teal-100 flex justify-center">
+          <main className="min-h-screen bg-gray-100 flex justify-center">
             <div className="w-10/12">
               {children}
             </div>

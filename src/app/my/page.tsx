@@ -127,7 +127,7 @@ export default function MyPage() {
           <div>
             <h2 className="text-2xl mt-5">Description</h2>
             <textarea
-              className="rounded-lg w-full mt-5 p-5 drop-shadow-sm"
+              className="rounded-lg w-full mt-5 p-5 drop-shadow-sm border"
               rows={4}
               value={userData.desc}
               onChange={(e) => {
@@ -150,7 +150,7 @@ export default function MyPage() {
               Url Desciption<span className="text-red-500">*</span>
             </label>
             <textarea
-              className="rounded-lg w-full p-2 drop-shadow-sm"
+              className="rounded-lg w-full p-2 drop-shadow-sm border"
               onChange={(e) => {
                 setUrlDesc(e.target.value), setEmptyError("");
               }}
@@ -162,7 +162,7 @@ export default function MyPage() {
             <input
               placeholder="https://www.instagram.com/instagram"
               type="url"
-              className="rounded-lg w-full p-2 drop-shadow-sm"
+              className="rounded-lg w-full p-2 drop-shadow-sm border"
               value={url}
               onChange={(e) => {
                 setUrl(e.target.value);
@@ -184,7 +184,7 @@ export default function MyPage() {
               <div className="flex flex-col justify-center mt-10">
                 {datas?.links?.map((data: Links, index: number) => (
                   <div
-                    className="flex justify-between w-full mb-3 bg-white px-2 py-2 lg:px-10 lg:py-5 rounded-lg drop-shadow-sm"
+                    className="flex justify-between w-full mb-3 bg-white px-2 py-2 lg:px-10 lg:py-5 rounded-lg drop-shadow-sm border"
                     key={index}
                   >
                     <div className="w-full flex justify-center">
@@ -216,23 +216,6 @@ export default function MyPage() {
                       </div>
                     </div>
                     <div className="flex">
-                      <div className="flex items-center">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke-width="1.5"
-                          stroke="currentColor"
-                          className="w-5 h-5"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"
-                          />
-                        </svg>
-                        <span className="ml-1">{data.clickNumber}</span>
-                      </div>
                       <button
                         className="p-3 text-red-400 transition duration-300 ease-in-out hover:text-red-600"
                         onClick={() => deleteLink(index)}
