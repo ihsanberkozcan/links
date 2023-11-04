@@ -4,7 +4,7 @@ export type Links= {
   clickNumber: number;
 };
 export type MyObjectType = {
-  links: Links[];
+  links?: Links[];
 };
 export type datatype = {
   username?: string;
