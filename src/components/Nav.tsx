@@ -26,7 +26,7 @@ export default function Nav() {
   return (
     <div className="py-6 w-full flex justify-between align-middle">
       <div className="flex items-center">
-        <a className="text-3xl font-semibold text-purple-500 h-[40px]" href="/">
+        <a className="text-3xl font-semibold text-black h-[40px]" href="/">
           Links
         </a>
         <div className="hidden lg:flex ml-12">
@@ -69,7 +69,7 @@ export default function Nav() {
               onClick={() => {
                 signIn(provider.id);
               }}
-              className="bg-purple-500 py-2 px-5 rounded text-white"
+              className="bg-black py-2 px-5 rounded text-white"
             >
               Sign in
             </button>

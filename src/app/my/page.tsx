@@ -120,7 +120,7 @@ export default function MyPage() {
             ></textarea>
             <div className="grid justify-items-end mt-3">
               <button
-                className="bg-purple-500 text-white py-3 px-10 rounded-lg"
+                className="bg-black text-white py-3 px-10 rounded-lg"
                 onClick={() => updateDescription()}
               >
                 Save
@@ -157,7 +157,7 @@ export default function MyPage() {
             <p className="text-red-500">{error}&#8203;</p>
             <button
               onClick={() => addUrl()}
-              className="bg-purple-500 p-3 mt-3 rounded-lg w-full text-white"
+              className="bg-black p-3 mt-3 rounded-lg w-full text-white"
             >
               Add
             </button>
@@ -177,7 +177,7 @@ export default function MyPage() {
           <div className="ml-auto w-fit">
             <a
               href={`/${userData.username}`}
-              className="text-purple-500 flex mb-2 p-2"
+              className="text-black flex mb-2 p-2"
             >
               <div className="mr-2 font-medium">Go To My Page</div>
               <svg

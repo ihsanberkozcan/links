@@ -29,7 +29,7 @@ export default async function Profile({ params }: Props) {
       {username == sessionUser?.username ? (
         <a
           href="/my"
-          className="p-5 m-2 absolute text-purple-500 flex text-lg font-semibold"
+          className="p-5 m-2 absolute text-black flex text-lg font-semibold"
           id="edit"
         >
           <svg

@@ -62,7 +62,7 @@ export default function Settings({ params }: Props) {
             }}
           />
           <button
-            className="px-5 ml-5 bg-purple-500 text-white rounded"
+            className="px-5 ml-5 bg-black text-white rounded"
             onClick={handleChangeUsername}
           >
             <svg

@@ -7,10 +7,10 @@ export default function Pricing() {
       <Nav />
       <div className="flex mt-10">
         <div className="flex-1 mr-5 bg-white rounded-xl overflow-hidden">
-          <div className="w-full bg-purple-500 pt-5 pb-2 text-white font-extrabold text-2xl text-center">
+          <div className="w-full bg-black pt-5 pb-2 text-white font-extrabold text-2xl text-center">
             Free
           </div>
-          <div className="w-full bg-purple-500 pb-5 text-white  font-bold text-xl text-center">
+          <div className="w-full bg-black pb-5 text-white  font-bold text-xl text-center">
             $0
           </div>
           <ul className="px-10 py-5 text-lg">
@@ -18,10 +18,10 @@ export default function Pricing() {
           </ul>
         </div>
         <div className="flex-1 mx-5 bg-white rounded-xl overflow-hidden">
-          <div className="w-full bg-purple-500 pt-5 pb-2 text-white font-extrabold text-2xl text-center">
+          <div className="w-full bg-black pt-5 pb-2 text-white font-extrabold text-2xl text-center">
             Standard
           </div>
-          <div className="w-full bg-purple-500 pb-5 text-white  font-bold text-xl text-center ">
+          <div className="w-full bg-black pb-5 text-white  font-bold text-xl text-center ">
             not yet
           </div>
           <ul className="px-10 py-5 text-lg blur-sm">
@@ -35,10 +35,10 @@ export default function Pricing() {
         </div>
 
         <div className="flex-1 mx-5 bg-white rounded-xl overflow-hidden">
-          <div className="w-full bg-purple-500 pt-5 pb-2 text-white font-extrabold text-2xl text-center">
+          <div className="w-full bg-black pt-5 pb-2 text-white font-extrabold text-2xl text-center">
             Premium
           </div>
-          <div className="w-full bg-purple-500 pb-5 text-white  font-bold text-xl text-center">
+          <div className="w-full bg-black pb-5 text-white  font-bold text-xl text-center">
             not yet
           </div>
           <ul className="px-10 py-5 text-lg blur-sm">
@@ -53,10 +53,10 @@ export default function Pricing() {
           </ul>
         </div>
         <div className="flex-1 ml-5 bg-white rounded-xl overflow-hidden">
-          <div className="w-full bg-purple-500 pt-5 pb-2 text-white font-extrabold text-2xl text-center">
+          <div className="w-full bg-black pt-5 pb-2 text-white font-extrabold text-2xl text-center">
             Enterprise
           </div>
-          <div className="w-full bg-purple-500 pb-5 text-white  font-bold text-xl text-center">
+          <div className="w-full bg-black pb-5 text-white  font-bold text-xl text-center">
             not yet
           </div>
           <ul className="px-10 py-5 blur-sm text-lg">

@@ -21,11 +21,11 @@ export default async function Home() {
       <main className="flex justify-center w-full min-h-screen font-sans">
         <div className="relative max-w-10xl mx-auto pt-20 sm:pt-24 lg:pt-32">
           <h1 className="uppercase font-sans mt-20 text-slate-700 font-bold text-5xl tracking-tight text-left">
-            All-in-One <span className="text-purple-500">Link</span> Solution:
+            All-in-One <span className="text-black">Link</span> Solution:
           </h1>
           <h2 className="font-sans mt-5 text-slate-600 font-medium text-5xl tracking-tight text-left">
             Simplify your online life by bringing all your{" "}
-            <span className="text-purple-500">links</span> together.
+            <span className="text-black">links</span> together.
           </h2>
         </div>
       </main>

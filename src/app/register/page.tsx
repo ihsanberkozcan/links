@@ -44,7 +44,7 @@ export default function Register() {
               }}
             />
             <button
-              className="p-5 ml-2 bg-purple-500 text-white rounded-full"
+              className="p-5 ml-2 bg-black text-white rounded-full"
               onClick={handleCreateAccount}
             >
               <svg
