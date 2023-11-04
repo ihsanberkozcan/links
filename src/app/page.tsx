@@ -16,14 +16,14 @@ export default async function Home() {
     redirect("/my");
   }
   return (
-    <div className="">
+    <div className="flex flex-col min-h-screen">
       <Nav />
-      <main className="flex justify-center w-full min-h-screen font-sans">
-        <div className="relative max-w-10xl mx-auto pt-20 sm:pt-24 lg:pt-32">
-          <h1 className="uppercase font-sans mt-20 text-slate-700 font-bold text-5xl tracking-tight text-left">
-            All-in-One <span className="text-black">Link</span> Solution:
+      <main className="flex-col flex-1 flex justify-center w-full h-max font-sans">
+        <div className="relative max-w-10xl">
+          <h1 className="uppercase font-sans mb-10 text-slate-500 font-semibold  text-6xl tracking-tight text-left">
+            All-in-One <span className="text-black">Link</span> Solution
           </h1>
-          <h2 className="font-sans mt-5 text-slate-600 font-medium text-5xl tracking-tight text-left">
+          <h2 className="font-sans mt-5 text-slate-500 text-4xl tracking-tight text-left">
             Simplify your online life by bringing all your{" "}
             <span className="text-black">links</span> together.
           </h2>
