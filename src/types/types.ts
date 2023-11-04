@@ -11,6 +11,11 @@ export type datatype = {
   desc?: string;
   img?: string;
   links?: Links[];
+  linksBackgroundColor?: string
+  descriptionTextColor?: string
+  linksTextColor?: string
+  pageBackgroundColor?: string
+
 };
 export type userdatatype = {
   username: string;

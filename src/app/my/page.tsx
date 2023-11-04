@@ -1,9 +1,9 @@
 "use client";
+import EditPageDesign from "@/components/EditPageDesign";
+import Footer from "@/components/Footer";
 import MyLinks from "@/components/MyLinks";
 import Nav from "@/components/Nav";
-import { Links, MyObjectType, datatype, userdatatype } from "@/types/types";
-import { truncateText } from "@/utils/truncateText";
-
+import { MyObjectType, datatype, userdatatype } from "@/types/types";
 import { useEffect, useRef, useState } from "react";
 
 export default function MyPage() {
@@ -106,10 +106,10 @@ export default function MyPage() {
   return (
     <div className="">
       <Nav />
-      <div className="flex flex-col lg:flex-row">
+      <div className="flex flex-col lg:flex-row mt-5 mb-10">
         <div className="w-full lg:w-3/4">
           <div>
-            <h2 className="text-2xl mt-5">Description</h2>
+            <h2 className="text-2xl">Description</h2>
             <textarea
               className="rounded-lg w-full mt-5 p-5 drop-shadow-sm border"
               rows={4}
@@ -172,6 +172,7 @@ export default function MyPage() {
               setIframeKey={setIframeKey}
             />
           </div>
+          <EditPageDesign  iframeKey={iframeKey}  setIframeKey={setIframeKey}/>
         </div>
         <div className="lg:ml-10 w-full lg:w-1/4">
           <div className="ml-auto w-fit">
@@ -212,6 +213,7 @@ export default function MyPage() {
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }

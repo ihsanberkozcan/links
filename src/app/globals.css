@@ -2,3 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+.arrow-up {
+  position: relative;
+  margin-left: auto;
+  margin-right: 1px;
+  margin-bottom: -2px;
+  width: 0;
+  height: 0;
+  z-index: 12;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 15px solid white;
+}
+
+.sketch-picker {
+  box-shadow: none !important;
+}

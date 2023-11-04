@@ -3,6 +3,7 @@ import { Links, datatype } from "@/types/types";
 import connect from "@/utils/db";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]/route";
+import { data } from "autoprefixer";
 
 type Props = {
   params: { slug: string };
@@ -25,7 +26,7 @@ export default async function Profile({ params }: Props) {
   const datas: datatype | null = await User.findOne({ username });
 
   return (
-    <main className="flex justify-center w-full min-h-screen font-sans">
+    <main className="flex justify-center min-h-screen font-sans w-screen absolute left-0" style={{backgroundColor: datas?.pageBackgroundColor}}>
       {username == sessionUser?.username ? (
         <a
           href="/my"
@@ -50,17 +51,18 @@ export default async function Profile({ params }: Props) {
         </a>
       ) : null}
 
-      <div className="w-4/5 mt-16">
+      <div className="max-w-2xl w-full text-xl mt-16 mx-5">
         {datas !== null ? (
           <>
-            <div className="flex flex-col items-center mb-10">
+            <div className="flex flex-col items-center mb-10 w-full">
               <h1 className="mt-4 text-2xl">@{datas.username}</h1>
-              <p className="text-lg mt-2">{datas.desc}</p>
+              <p className="text-lg mt-5" style={{color:datas.descriptionTextColor}}>{datas.desc}</p>
             </div>
             {datas?.links?.map((data: Links, index: number) => (
               <a
                 key={index}
-                className="bg-red-400 mb-5 rounded-lg p-5 text-white transition ease-in-out delay-150 transition ease-in-out delay-150 hover:scale-105 flex items-center"
+                className="w-full mb-5 rounded-lg p-4 text-white transition ease-in-out delay-150 hover:scale-105 flex items-center"
+                style={{backgroundColor: datas.linksBackgroundColor, color: datas.linksTextColor}}
                 href={data.url}
               >
                 <div className="w-full text-center">{data.urlDesc}</div>

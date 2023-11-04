@@ -5,7 +5,7 @@ const linkSchema = new Schema({
   url: String,
   clickNumber: {
     type: Number,
-    default: 0
+    default: 0,
   },
 });
 
@@ -27,6 +27,22 @@ const UserSchema = new Schema({
     type: String,
   },
   links: [linkSchema],
+  linksBackgroundColor: {
+    type: String,
+    default: "#f87171",
+  },
+  linksTextColor: {
+    type: String,
+    default: "#ffffff",
+  },
+  pageBackgroundColor: {
+    type: String,
+    default: "#f3f4f6",
+  },
+  descriptionTextColor: {
+    type: String,
+    default: "#000000",
+  },
 });
 
 export default models.User || model("User", UserSchema);

@@ -61,7 +61,7 @@ export default function Nav() {
         </div>
       ) : (
         <>
-          {console.log(provider)}
+   
           {provider && (
             <button
               type="button"
