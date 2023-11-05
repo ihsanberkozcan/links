@@ -4,6 +4,7 @@ import { authOptions } from "./api/auth/[...nextauth]/route";
 import connect from "@/utils/db";
 import User from "@/models/User";
 import { redirect } from "next/navigation";
+import Footer from "@/components/Footer";
 
 export default async function Home() {
   await connect();
@@ -16,19 +17,22 @@ export default async function Home() {
     redirect("/my");
   }
   return (
-    <div className="flex flex-col min-h-screen">
-      <Nav />
-      <main className="flex-col flex-1 flex justify-center w-full h-max font-sans">
-        <div className="relative max-w-10xl">
-          <h1 className="uppercase font-sans mb-10 text-slate-500 font-semibold  text-6xl tracking-tight text-left">
-            All-in-One <span className="text-black">Link</span> Solution
-          </h1>
-          <h2 className="font-sans mt-5 text-slate-500 text-4xl tracking-tight text-left">
-            Simplify your online life by bringing all your{" "}
-            <span className="text-black">links</span> together.
-          </h2>
-        </div>
-      </main>
+    <div>
+      <div className="flex flex-col min-h-screen">
+        <Nav />
+        <main className="flex-col flex-1 flex justify-center w-full h-max font-sans">
+          <div className="relative max-w-10xl">
+            <h1 className="uppercase font-sans mb-10 text-slate-500 font-semibold  text-6xl tracking-tight text-left">
+              All-in-One <span className="text-black">Link</span> Solution
+            </h1>
+            <h2 className="font-sans mt-5 text-slate-500 text-4xl tracking-tight text-left">
+              Simplify your online life by bringing all your{" "}
+              <span className="text-black">links</span> together.
+            </h2>
+          </div>
+        </main>
+      </div>
+      <Footer />
     </div>
   );
 }
