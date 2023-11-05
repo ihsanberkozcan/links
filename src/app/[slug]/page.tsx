@@ -4,6 +4,7 @@ import connect from "@/utils/db";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]/route";
 import { data } from "autoprefixer";
+import getContrastColor from "@/utils/getContrastColor";
 
 type Props = {
   params: { slug: string };
@@ -26,7 +27,10 @@ export default async function Profile({ params }: Props) {
   const datas: datatype | null = await User.findOne({ username });
 
   return (
-    <main className="flex justify-center min-h-screen font-sans w-screen absolute left-0" style={{backgroundColor: datas?.pageBackgroundColor}}>
+    <main
+      className="flex justify-center min-h-screen font-sans w-screen absolute left-0"
+      style={{ backgroundColor: datas?.pageBackgroundColor }}
+    >
       {username == sessionUser?.username ? (
         <a
           href="/my"
@@ -55,14 +59,33 @@ export default async function Profile({ params }: Props) {
         {datas !== null ? (
           <>
             <div className="flex flex-col items-center mb-10 w-full">
-              <h1 className="mt-4 text-2xl">@{datas.username}</h1>
-              <p className="text-lg mt-5" style={{color:datas.descriptionTextColor}}>{datas.desc}</p>
+              <h1
+                className="mt-4 text-2xl"
+                style={{
+                  color: getContrastColor(
+                    datas?.pageBackgroundColor
+                      ? datas?.pageBackgroundColor
+                      : "#00000"
+                  ),
+                }}
+              >
+                @{datas.username}
+              </h1>
+              <p
+                className="text-lg mt-5"
+                style={{ color: datas.descriptionTextColor }}
+              >
+                {datas.desc}
+              </p>
             </div>
             {datas?.links?.map((data: Links, index: number) => (
               <a
                 key={index}
                 className="w-full mb-5 rounded-lg p-4 text-white transition ease-in-out delay-150 hover:scale-105 flex items-center"
-                style={{backgroundColor: datas.linksBackgroundColor, color: datas.linksTextColor}}
+                style={{
+                  backgroundColor: datas.linksBackgroundColor,
+                  color: datas.linksTextColor,
+                }}
                 href={data.url}
               >
                 <div className="w-full text-center">{data.urlDesc}</div>

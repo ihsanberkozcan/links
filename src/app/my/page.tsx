@@ -3,6 +3,7 @@ import EditPageDesign from "@/components/EditPageDesign";
 import Footer from "@/components/Footer";
 import MyLinks from "@/components/MyLinks";
 import Nav from "@/components/Nav";
+import ArrowRight from "@/components/icons/ArrowRight";
 import { MyObjectType, datatype, userdatatype } from "@/types/types";
 import { useEffect, useRef, useState } from "react";
 
@@ -13,7 +14,6 @@ export default function MyPage() {
   const [loading, setLoading] = useState<boolean>(true);
   const [iframeKey, setIframeKey] = useState<number>(0);
 
-  const [mobileHeight, setMobileHeight] = useState<number>();
   const [urlDesc, setUrlDesc] = useState<string>();
 
   const [url, setUrl] = useState<string>("");
@@ -25,7 +25,6 @@ export default function MyPage() {
   }, []);
   useEffect(() => {
     if (userData?.username) {
-      const mobileWidth = mobile?.current?.offsetWidth;
       if (mobile?.current) {
         const iframe = mobile?.current;
         iframe.onload = () => {
@@ -39,8 +38,6 @@ export default function MyPage() {
           }
         };
       }
-
-      setMobileHeight(Math.floor(mobileWidth * 1.8));
     }
   }, [userData?.username, iframeKey]);
 
@@ -106,7 +103,7 @@ export default function MyPage() {
   return (
     <div className="">
       <Nav />
-      <div className="flex flex-col lg:flex-row mt-5 mb-10">
+      <div className="flex flex-col lg:flex-row mt-5 mb-52">
         <div className="w-full lg:w-3/4">
           <div>
             <h2 className="text-2xl">Description</h2>
@@ -172,48 +169,37 @@ export default function MyPage() {
               setIframeKey={setIframeKey}
             />
           </div>
-          <EditPageDesign  iframeKey={iframeKey}  setIframeKey={setIframeKey}/>
+          <EditPageDesign iframeKey={iframeKey} setIframeKey={setIframeKey} />
         </div>
-        <div className="lg:ml-10 w-full lg:w-1/4">
-          <div className="ml-auto w-fit">
-            <a
-              href={`/${userData.username}`}
-              className="text-black flex mb-2 p-2"
-            >
-              <div className="mr-2 font-medium">Go To My Page</div>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                className="w-6 h-6"
+        <div className="lg:ml-8 w-full lg:w-1/4 ">
+          <div className="lg:fixed z-10 w-full lg:w-1/5">
+            <div className="ml-auto w-fit">
+              <a
+                href={`/${userData.username}`}
+                className="text-black flex mb-2 p-2"
               >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                />
-              </svg>
-            </a>
-          </div>
+                <div className="mr-2 font-medium">Go To My Page</div>
+                <ArrowRight />
+              </a>
+            </div>
 
-          <div className="p-3 bg-slate-700 rounded-3xl">
-            {userData.username && loading ? (
-              <iframe
-                key={iframeKey}
-                ref={mobile}
-                src={`/${userData.username}`}
-                className="rounded-2xl w-full"
-                style={{ height: `${mobileHeight}px` }}
-              ></iframe>
-            ) : (
-              <p>loading</p>
-            )}
+            <div className="p-3 bg-slate-700 rounded-3xl">
+              {userData.username && loading ? (
+                <iframe
+                  key={iframeKey}
+                  ref={mobile}
+                  src={`/${userData.username}`}
+                  className="rounded-2xl w-full"
+                  style={{ aspectRatio: 9 / 16 }}
+                ></iframe>
+              ) : (
+                <p>loading</p>
+              )}
+            </div>
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

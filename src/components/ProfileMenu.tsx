@@ -15,7 +15,7 @@ export default function ProfileMenu() {
     setUsername(data.username);
   };
   return (
-    <div className="origin-top-right absolute right-0 bg-white w-48 flex flex-col p-2 rounded mt-1 drop-shadow-xl z-10">
+    <div className="origin-top-right absolute right-0 bg-white w-48 flex flex-col p-2 rounded mt-1 drop-shadow-xl z-50">
       <a
         type="button"
         className="p-1 m-2 hover:bg-slate-100 rounded text-center flex"
