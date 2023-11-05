@@ -34,8 +34,13 @@ export default async function Profile({ params }: Props) {
       {username == sessionUser?.username ? (
         <a
           href="/my"
-          className="p-5 m-2 absolute text-black flex text-lg font-semibold"
+          className="p-5 m-2 absolute flex text-lg font-semibold"
           id="edit"
+          style={{
+            color: getContrastColor(
+              datas?.pageBackgroundColor ? datas?.pageBackgroundColor : "#00000"
+            ),
+          }}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -51,7 +56,18 @@ export default async function Profile({ params }: Props) {
               d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125"
             />
           </svg>
-          <div className="ml-2">Edit your page</div>
+          <div
+            className="ml-2"
+            style={{
+              color: getContrastColor(
+                datas?.pageBackgroundColor
+                  ? datas?.pageBackgroundColor
+                  : "#00000"
+              ),
+            }}
+          >
+            Edit your page
+          </div>
         </a>
       ) : null}
 

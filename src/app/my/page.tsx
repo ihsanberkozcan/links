@@ -6,6 +6,7 @@ import Nav from "@/components/Nav";
 import ArrowRight from "@/components/icons/ArrowRight";
 import { MyObjectType, datatype, userdatatype } from "@/types/types";
 import { useEffect, useRef, useState } from "react";
+import { CgSpinner } from "react-icons/cg";
 
 export default function MyPage() {
   const mobile = useRef<any>(null);
@@ -183,7 +184,7 @@ export default function MyPage() {
               </a>
             </div>
 
-            <div className="p-3 bg-slate-700 rounded-3xl">
+            <div className="p-3 bg-slate-800 rounded-3xl">
               {userData.username && loading ? (
                 <iframe
                   key={iframeKey}
@@ -193,7 +194,12 @@ export default function MyPage() {
                   style={{ aspectRatio: 9 / 16 }}
                 ></iframe>
               ) : (
-                <p>loading</p>
+                <p
+                  className="rounded-2xl w-full h-full bg-white flex justify-center items-center"
+                  style={{ aspectRatio: 9 / 16 }}
+                >
+                  <CgSpinner className="animate-spin w-10 h-10" />
+                </p>
               )}
             </div>
           </div>
