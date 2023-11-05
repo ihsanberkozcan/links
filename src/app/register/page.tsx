@@ -1,9 +1,10 @@
 "use client";
-
+import { useSession, getSession } from "next-auth/react";
 import Nav from "@/components/Nav";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-
+import Loading from "@/components/Loading";
+import AccessDenied from "@/components/AccessDenied";
 
 export default function Register() {
   const router = useRouter();
@@ -25,6 +26,15 @@ export default function Register() {
       setErrorMessage(data.message);
     }
   };
+  const { data: session, status } = useSession();
+
+  if (status === "loading") {
+    return <Loading />;
+  }
+
+  if (status === "unauthenticated") {
+    return <AccessDenied />;
+  }
 
   return (
     <div className="w-full flex flex-col h-screen">

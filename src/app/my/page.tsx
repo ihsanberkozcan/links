@@ -7,7 +7,9 @@ import ArrowRight from "@/components/icons/ArrowRight";
 import { MyObjectType, datatype, userdatatype } from "@/types/types";
 import { useEffect, useRef, useState } from "react";
 import { CgSpinner } from "react-icons/cg";
-
+import { useSession, getSession } from "next-auth/react";
+import Loading from "@/components/Loading";
+import AccessDenied from "@/components/AccessDenied";
 export default function MyPage() {
   const mobile = useRef<any>(null);
   const [datas, setDatas] = useState<MyObjectType>({});
@@ -101,6 +103,15 @@ export default function MyPage() {
     }
   };
 
+  const { data: session, status } = useSession();
+
+  if (status === "loading") {
+    return <Loading />;
+  }
+
+  if (status === "unauthenticated") {
+    return <AccessDenied />;
+  }
   return (
     <div className="">
       <Nav />

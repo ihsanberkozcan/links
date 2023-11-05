@@ -1,10 +1,15 @@
 "use client";
+import { useSession, getSession } from "next-auth/react";
 import Nav from "@/components/Nav";
+import { createPortal } from "react-dom";
 import { Metadata } from "next";
 import { signOut } from "next-auth/react";
 
 import { redirect, useRouter } from "next/navigation";
 import { useState } from "react";
+import Loading from "@/components/Loading";
+import AccessDenied from "@/components/AccessDenied";
+import Delete from "@/components/Delete";
 type Props = {
   params: { slug: string };
 };
@@ -18,6 +23,7 @@ export default function Settings({ params }: Props) {
   const [username, setUsername] = useState<string>("");
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [succesMessage, setSuccesMessage] = useState<string>("");
+  const [deleteVisible, setDeleteVisible] = useState<boolean>(false);
   const deleteUser = async () => {
     const res = await fetch("/api/user", {
       method: "DELETE",
@@ -42,9 +48,17 @@ export default function Settings({ params }: Props) {
       setErrorMessage(data.message);
     }
   };
+  const { data: session, status } = useSession();
 
+  if (status === "loading") {
+    return <Loading />;
+  }
+
+  if (status === "unauthenticated") {
+    return <AccessDenied />;
+  }
   return (
-    <main className="">
+    <main className={deleteVisible ? "blur-sm" : ""}>
       <Nav />
 
       <div className="flex flex-col mt-4 mb-4">
@@ -54,7 +68,7 @@ export default function Settings({ params }: Props) {
         <div className="flex">
           <input
             type="text"
-            className="rounded p-2 w-full drop-shadow-md"
+            className="rounded p-2 drop-shadow-md"
             value={username}
             onChange={(e) => {
               setUsername(e.target.value), setErrorMessage("");
@@ -95,11 +109,16 @@ export default function Settings({ params }: Props) {
         </label>
         <div>
           <button
-            className="bg-red-400 py-5 px-12 rounded text-white"
-            onClick={() => deleteUser()}
+            className="bg-red-400 py-3 px-12 rounded text-white"
+            onClick={() => setDeleteVisible(true)}
           >
             delete
           </button>
+          <Delete
+            deleteVisible={deleteVisible}
+            setDeleteVisible={setDeleteVisible}
+            deleteUser={deleteUser}
+          />
         </div>
       </div>
     </main>
