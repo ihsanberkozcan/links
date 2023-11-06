@@ -28,7 +28,7 @@ export default async function Profile({ params }: Props) {
 
   return (
     <main
-      className="flex justify-center min-h-screen font-sans w-screen absolute left-0"
+      className="flex justify-center min-h-screen font-sans w-full absolute left-0"
       style={{ backgroundColor: datas?.pageBackgroundColor }}
     >
       {username == sessionUser?.username ? (
@@ -104,7 +104,7 @@ export default async function Profile({ params }: Props) {
                 }}
                 href={data.url}
               >
-                <div className="w-full text-center">{data.urlDesc}</div>
+                <div className="w-full text-sm sm:text-xl text-center">{data.urlDesc}</div>
               </a>
             ))}
           </>
