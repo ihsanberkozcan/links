@@ -20,6 +20,10 @@ const UserSchema = new Schema({
     unique: [true, "Username already exists!"],
     requred: [true, "Username is requred"],
   },
+  userType:  {
+    type: String,
+    default: "user"
+  },
   desc: {
     type: String,
   },
