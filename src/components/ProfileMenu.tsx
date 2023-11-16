@@ -4,18 +4,49 @@ import { useEffect, useState } from "react";
 
 export default function ProfileMenu() {
   const [username, setUsername] = useState<string>("");
+  const [userType, setUserType] = useState<string>("");
   useEffect(() => {
     getUserName();
+    getUserType();
   }, []);
-
 
   const getUserName = async () => {
     const res = await fetch("/api/user");
     const data: userdatatype = await res.json();
     setUsername(data.username);
   };
+
+  const getUserType = async () => {
+    const res = await fetch("/api/user/getUserType");
+    const data: any = await res.json();
+    setUserType(data.userType);
+  };
   return (
     <div className="origin-top-right absolute right-0 bg-white w-48 flex flex-col p-2 rounded mt-1 drop-shadow-xl z-50">
+      {userType == "admin" ? (
+        <a
+          type="button"
+          className="p-1 m-2 hover:bg-slate-100 rounded text-center flex"
+          href={"/admin"}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="1.5"
+            stroke="currentColor"
+            className="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"
+            />
+          </svg>
+
+          <div className="ml-1">Admin</div>
+        </a>
+      ) : null}
       <a
         type="button"
         className="p-1 m-2 hover:bg-slate-100 rounded text-center flex"
@@ -25,7 +56,7 @@ export default function ProfileMenu() {
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
-          stroke-width="1.5"
+          strokeWidth="1.5"
           stroke="currentColor"
           className="w-6 h-6"
         >
@@ -46,7 +77,7 @@ export default function ProfileMenu() {
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
-          stroke-width="1.5"
+          strokeWidth="1.5"
           stroke="currentColor"
           className="w-6 h-6"
         >
@@ -67,7 +98,7 @@ export default function ProfileMenu() {
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
-          stroke-width="1.5"
+          strokeWidth="1.5"
           stroke="currentColor"
           className="w-6 h-6"
         >
@@ -87,14 +118,14 @@ export default function ProfileMenu() {
       <hr></hr>
       <button
         type="button"
-        onClick={() => signOut({ callbackUrl: '/' })}
+        onClick={() => signOut({ callbackUrl: "/" })}
         className="text-red-400 rounded p-1 m-2 flex hover:bg-red-50"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
-          stroke-width="1.5"
+          strokeWidth="1.5"
           stroke="currentColor"
           className="w-6 h-6"
         >

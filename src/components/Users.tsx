@@ -2,7 +2,12 @@
 
 import User from "./User";
 
-export default function Users({ allUsers }: any) {
+type UsersPropsType= {
+  allUsers: never[]
+  handleDelete: (id: string) => Promise<void>
+}
 
-  return allUsers?.map((user: any) => <User user={user} />);
+export default function Users({ allUsers ,handleDelete}: UsersPropsType) {
+
+  return allUsers?.map((user) => <User user={user} handleDelete={handleDelete}/>);
 }
