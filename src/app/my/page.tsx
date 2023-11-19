@@ -10,12 +10,16 @@ import { CgSpinner } from "react-icons/cg";
 import { useSession, getSession } from "next-auth/react";
 import Loading from "@/components/Loading";
 import AccessDenied from "@/components/AccessDenied";
+import EditLinkBorderRadius from "@/components/EditLinkStyle";
 export default function MyPage() {
   const mobile = useRef<any>(null);
   const [datas, setDatas] = useState<MyObjectType>({});
   const [userData, setUserData] = useState<datatype>({});
   const [loading, setLoading] = useState<boolean>(true);
   const [iframeKey, setIframeKey] = useState<number>(0);
+  const [linksBackgroundColor, setLinksBackgroundColor] =
+    useState<string>("#000000");
+  const [linksTextColor, setLinksTextColor] = useState<string>("#ffffff");
 
   const [urlDesc, setUrlDesc] = useState<string>();
 
@@ -181,7 +185,23 @@ export default function MyPage() {
               setIframeKey={setIframeKey}
             />
           </div>
-          <EditPageDesign iframeKey={iframeKey} setIframeKey={setIframeKey} />
+          <div>
+            <h2 className="text-2xl mt-8">Edit My Page Design</h2>
+            <EditPageDesign
+              iframeKey={iframeKey}
+              setIframeKey={setIframeKey}
+              linksBackgroundColor={linksBackgroundColor}
+              setLinksBackgroundColor={setLinksBackgroundColor}
+              linksTextColor={linksTextColor}
+              setLinksTextColor={setLinksTextColor}
+            />
+            <EditLinkBorderRadius
+              iframeKey={iframeKey}
+              setIframeKey={setIframeKey}
+              linksBackgroundColor={linksBackgroundColor}
+              linksTextColor={linksTextColor}
+            />
+          </div>
         </div>
         <div className="lg:ml-8 w-full lg:w-1/4 ">
           <div className="lg:fixed z-10 w-full lg:w-1/5">

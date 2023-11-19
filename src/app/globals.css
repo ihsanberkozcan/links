@@ -18,3 +18,8 @@
 .sketch-picker {
   box-shadow: none !important;
 }
+
+
+.selected{
+  @apply outline outline-offset-2 outline-black
+}

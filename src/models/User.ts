@@ -24,6 +24,11 @@ const UserSchema = new Schema({
     type: String,
     default: "user"
   },
+  borderRadius:
+  {
+    type: String,
+    default: "rounded-none"
+  },
   desc: {
     type: String,
   },

@@ -4,18 +4,23 @@ import ChangeColor from "./ChangeColor";
 type EditPageDesignProps = {
   setIframeKey: Dispatch<SetStateAction<number>>;
   iframeKey: number;
+  linksBackgroundColor: string;
+  setLinksBackgroundColor: Dispatch<SetStateAction<string>>;
+  linksTextColor: string;
+  setLinksTextColor: Dispatch<SetStateAction<string>>;
 };
 export default function EditPageDesign({
   iframeKey,
   setIframeKey,
+  linksBackgroundColor,
+  setLinksBackgroundColor,
+  linksTextColor,
+  setLinksTextColor,
 }: EditPageDesignProps) {
   const [pageBackgroundColor, setPageBackgroundColor] =
     useState<string>("#ffffff");
   const [descriptionTextColor, setDescriptionTextColor] =
     useState<string>("#000000");
-  const [linksBackgroundColor, setLinksBackgroundColor] =
-    useState<string>("#000000");
-  const [linksTextColor, setLinksTextColor] = useState<string>("#ffffff");
 
   useEffect(() => {
     getLinksBackgroundColor();
@@ -56,7 +61,6 @@ export default function EditPageDesign({
   };
   return (
     <div>
-      <h2 className="text-2xl mt-8">Edit My Page Design</h2>
       <h3 className="text-xl mt-5 mb-2">Colors</h3>
       <ChangeColor
         title="Page Bacground Color"

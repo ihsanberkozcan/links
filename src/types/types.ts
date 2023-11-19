@@ -10,6 +10,7 @@ export type datatype = {
   username?: string;
   desc?: string;
   img?: string;
+  borderRadius?: string;
   links?: Links[];
   linksBackgroundColor?: string
   descriptionTextColor?: string

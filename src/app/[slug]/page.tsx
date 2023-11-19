@@ -97,7 +97,7 @@ export default async function Profile({ params }: Props) {
             {datas?.links?.map((data: Links, index: number) => (
               <a
                 key={index}
-                className="w-full mb-5 rounded-lg p-4 text-white transition ease-in-out delay-150 hover:scale-105 flex items-center"
+                className={`w-full mb-5 p-4 text-white transition ease-in-out delay-150 hover:scale-105 flex items-center ${datas?.borderRadius}`}
                 style={{
                   backgroundColor: datas.linksBackgroundColor,
                   color: datas.linksTextColor,
