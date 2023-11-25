@@ -1,4 +1,5 @@
 export type Links= {
+  _id?: any | undefined;
   urlDesc: string;
   url: string;
   clickNumber: number;

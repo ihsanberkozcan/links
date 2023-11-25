@@ -77,6 +77,7 @@ export default async function Profile({ params }: Props) {
             <div className="flex flex-col items-center mb-10 w-full">
               <h1
                 className="mt-4 text-2xl"
+                id="name"
                 style={{
                   color: getContrastColor(
                     datas?.pageBackgroundColor
@@ -97,14 +98,18 @@ export default async function Profile({ params }: Props) {
             {datas?.links?.map((data: Links, index: number) => (
               <a
                 key={index}
-                className={`w-full mb-5 p-4 text-white transition ease-in-out delay-150 hover:scale-105 flex items-center ${datas?.borderRadius}`}
+                className={`link w-full mb-5 p-4 text-white transition ease-in-out delay-150 hover:scale-105 flex items-center ${datas?.borderRadius}`}
+                id={data._id.toString()}
                 style={{
                   backgroundColor: datas.linksBackgroundColor,
                   color: datas.linksTextColor,
                 }}
                 href={data.url}
+                target="_blank"
               >
-                <div className="w-full text-sm sm:text-xl text-center">{data.urlDesc}</div>
+                <div className="w-full text-sm sm:text-xl text-center">
+                  {data.urlDesc}
+                </div>
               </a>
             ))}
           </>

@@ -3,6 +3,7 @@ import React from "react";
 import { Draggable } from "react-beautiful-dnd";
 import { Links } from "@/types/types";
 import Trash from "./icons/Trash";
+import ChartBar from "./icons/ChartBar";
 
 type LinkProps = {
   data: Links;
@@ -51,6 +52,10 @@ export default function Link({ index, data, deleteLink }: LinkProps) {
             </div>
           </div>
           <div className="flex items-center">
+            <div className="flex items-center mr-1 md:mr-5">
+              <ChartBar />
+              <span>{data.clickNumber}</span>
+            </div>
             <button
               className="p-3 text-red-400 transition duration-300 ease-in-out hover:text-red-600"
               onClick={() => deleteLink(index)}
