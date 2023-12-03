@@ -59,9 +59,7 @@ export default function Settings({ params }: Props) {
   }
   return (
     <main>
-      <div
-        className={deleteVisible ? "blur-sm w-screen h-screen absolute top-0 left-0 z-50 bg-slate-600 opacity-50" : ""}
-      ></div>
+
       <Nav />
 
       <div className="flex flex-col mt-4 mb-4">
