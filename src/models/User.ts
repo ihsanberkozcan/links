@@ -17,6 +17,7 @@ const UserSchema = new Schema({
   },
   username: {
     type: String,
+    lowercase: [true, "Username is lovercase"], 
     unique: [true, "Username already exists!"],
     requred: [true, "Username is requred"],
   },

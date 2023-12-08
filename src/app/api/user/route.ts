@@ -16,7 +16,8 @@ export async function POST(request: Request) {
   const body = await request.json();
   const session = await getServerSession(authOptions);
   const sessionUser = await User.findOne({ email: session?.user.email });
-  const userExist = await User.findOne({ username: body.username });
+  const username = body.username.toLowerCase();
+  const userExist = await User.findOne({ username: username });
   if (!body.username) {
     return NextResponse.json(
       { message: "Username can not be empty" },

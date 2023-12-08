@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: Props) {
 }
 
 export default async function Profile({ params }: Props) {
-  const username = params.slug;
+  const username = params.slug.toLowerCase();
 
   await connect();
   const session = await getServerSession(authOptions);
