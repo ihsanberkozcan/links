@@ -7,9 +7,11 @@ import { useEffect, useState } from "react";
 import Loading from "@/components/Loading";
 import AccessDenied from "@/components/AccessDenied";
 import SearchUser from "@/components/SearchUser";
+import RestrictedUsernames from "@/components/RestrictedUsernames";
 
 export default function Admin() {
   const [allUsers, setAllUsers] = useState([]);
+  const [page, setPage] = useState("allUser");
   const { data: session, status } = useSession();
   const [searchText, setSeacrhText] = useState("");
   useEffect(() => {
@@ -29,7 +31,7 @@ export default function Admin() {
     setAllUsers(data.users);
   };
 
-  const handleDelete = async(id: string) => {
+  const handleDelete = async (id: string) => {
     const res = await fetch("/api/admin/deleteUser", {
       method: "DELETE",
       headers: {
@@ -38,7 +40,6 @@ export default function Admin() {
       body: JSON.stringify({ id: id }),
     });
     if (res.status == 200) {
-    
       setAllUsers(allUsers?.filter((user: any) => user.id !== id));
     }
   };
@@ -56,13 +57,27 @@ export default function Admin() {
       <Nav />
       <div>
         <h2 className="text-4xl mt-10 pb-2 mb-5 text-center">Hello Admin</h2>
-        <SearchUser
-          searchText={searchText}
-          setSeacrhText={setSeacrhText}
-          userNumber={allUsers.length}
-          getAllUser={getAllUser}
-        />
-        <Users allUsers={allUsers} handleDelete={handleDelete} />
+        <div>
+          <button className="bg-black rounded-md text-white py-2 px-14" onClick={()=> setPage("allUser")}>
+            All User
+          </button>
+          <button className="bg-black rounded-md text-white py-2 px-5 ml-2"  onClick={()=> setPage("restrictedUsername")}>
+            Restricted Username
+          </button>
+        </div>
+        {page == "allUser" ? (
+          <>
+            <SearchUser
+              searchText={searchText}
+              setSeacrhText={setSeacrhText}
+              userNumber={allUsers.length}
+              getAllUser={getAllUser}
+            />
+            <Users allUsers={allUsers} handleDelete={handleDelete} />
+          </>
+        ) : (
+          <RestrictedUsernames />
+        )}
       </div>
     </div>
   );
