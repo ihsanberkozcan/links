@@ -1,145 +1,106 @@
 import Nav from "@/components/Nav";
-import CheckCircle from "@/components/icons/CheckCircle";
 import React from "react";
-
+import { FaCheckCircle } from "react-icons/fa";
 export default function Pricing() {
   return (
     <div>
       <Nav />
-      <div className="mt-10 grid grid-cols-2 xl:grid-cols-4 gap-4">
-
-        <div className="bg-white rounded-xl overflow-hidden">
-          <div className="w-full bg-black pt-5 pb-2 text-white font-extrabold text-2xl text-center">
-            Free
+      <section className="mt-32">
+        <div className="container">
+          <div className="grid grid-cols-1 gap-6 mt-8 lg:grid-cols-3 md:gap-6 lg:gap-8">
+            <div className="flex flex-col p-6 bg-white shadow-lg rounded-lg dark:bg-zinc-850 justify-between border border-gray-300">
+              <div>
+                <h3 className="text-2xl font-bold text-center">Basic</h3>
+                <div className="mt-4 text-center text-zinc-600 dark:text-zinc-400">
+                  <span className="text-4xl font-bold">Free</span>/ month
+                </div>
+                <ul className="mt-4 space-y-2">
+                  <li className="flex items-center">
+                    <FaCheckCircle color="#22c55e" />
+                    Unlimited links
+                  </li>
+                </ul>
+              </div>
+              <div className="mt-6">
+                <button className="w-full bg-black text-white p-2 rounded-lg">
+                  Get Started
+                </button>
+              </div>
+            </div>
+            <div className="relative flex flex-col p-6 bg-white shadow-lg rounded-lg dark:bg-zinc-850 justify-between border border-purple-500">
+              <div className="px-3 py-1 text-sm text-white bg-gradient-to-r from-pink-500 to-purple-500 rounded-full inline-block absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                Popular
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold text-center">Pro</h3>
+                <div className="mt-4 text-center text-zinc-600 dark:text-zinc-400">
+                  <span className="text-4xl font-bold line-through">$59</span>/
+                  month
+                </div>
+                <ul className="mt-4 space-y-2 blur-sm">
+                  <li className="flex items-center">
+                    <FaCheckCircle color="#22c55e" />
+                    Lorem ipsum dolor sit amet.
+                  </li>
+                  <li className="flex items-center">
+                    <FaCheckCircle color="#22c55e" />
+                    Lorem ipsum dolor sit amet.
+                  </li>
+                  <li className="flex items-center">
+                    <FaCheckCircle color="#22c55e" />
+                    Lorem ipsum dolor sit amet.
+                  </li>
+                  <li className="flex items-center">
+                    <FaCheckCircle color="#22c55e" />
+                    Lorem ipsum dolor sit amet.
+                  </li>
+                </ul>
+              </div>
+              <div className="mt-6">
+                <button className="w-full bg-gradient-to-r from-pink-500 to-purple-500 p-2 rounded-lg blur-sm">
+                  Get Started
+                </button>
+              </div>
+            </div>
+            <div className="flex flex-col p-6 bg-white shadow-lg rounded-lg dark:bg-zinc-850 justify-between border border-gray-300">
+              <div>
+                <h3 className="text-2xl font-bold text-center">Enterprise</h3>
+                <div className="mt-4 text-center text-zinc-600 dark:text-zinc-400">
+                  <span className="text-4xl font-bold line-through">$99</span>/
+                  month
+                </div>
+                <ul className="mt-4 space-y-2 blur-sm">
+                  <li className="flex items-center">
+                    <FaCheckCircle color="#22c55e" />
+                    Lorem ipsum dolor sit amet.
+                  </li>
+                  <li className="flex items-center">
+                    <FaCheckCircle color="#22c55e" />
+                    Lorem ipsum dolor sit amet.
+                  </li>
+                  <li className="flex items-center">
+                    <FaCheckCircle color="#22c55e" />
+                    Lorem ipsum dolor sit amet.
+                  </li>
+                  <li className="flex items-center">
+                    <FaCheckCircle color="#22c55e" />
+                    Lorem ipsum dolor sit amet.
+                  </li>
+                  <li className="flex items-center">
+                    <FaCheckCircle color="#22c55e" />
+                    Lorem ipsum dolor sit amet.
+                  </li>
+                </ul>
+              </div>
+              <div className="mt-6">
+                <button className="w-full bg-black text-white p-2 rounded-lg blur-sm">
+                  Get Started
+                </button>
+              </div>
+            </div>
           </div>
-          <div className="w-full bg-black pb-5 text-white font-bold text-xl text-center">
-            $0
-          </div>
-          <ul className="px-8 py-5 text-lg">
-            <li className="mb-3 flex">
-              <CheckCircle />
-              <div className="ml-1 flex-1 items-center">Unlimited links</div>
-            </li>
-          </ul>
         </div>
-
-        <div className="bg-white rounded-xl overflow-hidden">
-          <div className="w-full bg-black pt-5 pb-2 text-white font-extrabold text-2xl text-center">
-            Standard
-          </div>
-          <div className="w-full bg-black pb-5 text-white  font-bold text-xl text-center ">
-            not yet
-          </div>
-          <ul className="px-8 py-5 text-lg blur-sm">
-            <li className="mb-3 flex">
-              <CheckCircle />
-              <div className="ml-1 flex-1 items-center">
-                Earum obcaecati hic reprehenderit delectus soluta dolor expedita
-                nam quasi.
-              </div>
-            </li>
-            <li className="mb-3 flex">
-              <CheckCircle />
-              <div className="ml-1 flex-1 items-center">
-                Consequatur nostrum molestiae
-              </div>
-            </li>
-            <li className="mb-3 flex">
-              <CheckCircle />
-              <div className="ml-1 flex-1 items-center">Lorem.</div>
-            </li>
-          </ul>
-        </div>
-
-        <div className="bg-white rounded-xl overflow-hidden">
-          <div className="w-full bg-black pt-5 pb-2 text-white font-extrabold text-2xl text-center">
-            Premium
-          </div>
-          <div className="w-full bg-black pb-5 text-white  font-bold text-xl text-center">
-            not yet
-          </div>
-          <ul className="px-8 py-5 text-lg blur-sm">
-            <li className="mb-3 flex">
-              <CheckCircle />
-              <div className="ml-1 flex-1 items-center">
-                Earum obcaecati hic reprehenderit delectus soluta dolor expedita
-                nam quasi.
-              </div>
-            </li>
-            <li className="mb-3 flex">
-              <CheckCircle />
-              <div className="ml-1 flex-1 items-center">
-                Consequatur nostrum molestiae
-              </div>
-            </li>
-            <li className="mb-3 flex">
-              <CheckCircle />
-              <div className="ml-1 flex-1 items-center">Lorem.</div>
-            </li>
-            <li className="mb-3 flex">
-              <CheckCircle />
-              <div className="ml-1 flex-1 items-center">
-                Lorem ipsum dolor sit.
-              </div>
-            </li>
-            <li className="mb-3 flex">
-              <CheckCircle />
-              <div className="ml-1 flex-1 items-center">
-                Lorem ipsum dolor sit amet.
-              </div>
-            </li>
-          </ul>
-        </div>
-
-        <div className="bg-white rounded-xl overflow-hidden">
-          <div className="w-full bg-black pt-5 pb-2 text-white font-extrabold text-2xl text-center">
-            Enterprise
-          </div>
-          <div className="w-full bg-black pb-5 text-white  font-bold text-xl text-center">
-            not yet
-          </div>
-          <ul className="px-8 py-5 text-lg blur-sm">
-            <li className="mb-3 flex">
-              <CheckCircle />
-              <div className="ml-1 flex-1 items-center">
-                Earum obcaecati hic reprehenderit delectus soluta dolor expedita
-                nam quasi.
-              </div>
-            </li>
-            <li className="mb-3 flex">
-              <CheckCircle />
-              <div className="ml-1 flex-1 items-center">
-                Lorem ipsum dolor sit amet.
-              </div>
-            </li>
-            <li className="mb-3 flex">
-              <CheckCircle />
-              <div className="ml-1 flex-1 items-center">
-                Lorem ipsum dolor sit.
-              </div>
-            </li>
-            <li className="mb-3 flex">
-              <CheckCircle />
-              <div className="ml-1 flex-1 items-center">
-                Lorem ipsum dolor sit amet.
-              </div>
-            </li>
-            <li className="mb-3 flex">
-              <CheckCircle />
-              <div className="ml-1 flex-1 items-center">
-                Lorem ipsum dolor sit.
-              </div>
-            </li>
-            <li className="mb-3 flex">
-              <CheckCircle />
-              <div className="ml-1 flex-1 items-center">
-                Fugit dolor veritatis molestias aut tempore consequatur ullam
-                cupiditate id tenetur.
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
+      </section>
     </div>
   );
 }
