@@ -5,6 +5,7 @@ import connect from "@/utils/db";
 import User from "@/models/User";
 import { redirect } from "next/navigation";
 import Footer from "@/components/Footer";
+import Iphone15Pro from "@/components/ui/iphone-15-pro";
 
 export default async function Home() {
   await connect();
@@ -20,7 +21,7 @@ export default async function Home() {
     <div>
       <div className="flex flex-col min-h-screen">
         <Nav />
-        <main className="flex-col flex-1 flex justify-center w-full h-max font-sans">
+        <main className="flex-row flex-1 flex justify-center w-full h-max font-sans items-center gap-20">
           <div className="relative max-w-10xl">
             <h1 className="uppercase font-sans mb-10 text-black font-semibold  text-6xl tracking-tight text-left">
               All-in-One Link Solution
@@ -28,8 +29,17 @@ export default async function Home() {
             <h2 className="font-sans mt-5 text-black text-4xl tracking-tight text-left">
               Simplify your online life by bringing all your links together.
             </h2>
+
+          </div>
+          <div className="hidden lg:block mb-10">
+
+            <Iphone15Pro
+              className="size-full"
+              src="/ihsan.png"
+            />
           </div>
         </main>
+
       </div>
       <Footer />
     </div>
