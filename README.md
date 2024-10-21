@@ -6,10 +6,12 @@ TypeScript, React, Next.js, Tailwind CSS, MongoDB
 
 ## Screenshots
 
-![links-1](https://github.com/ihsanberkozcan/links/assets/59116996/ca738bdd-848e-4cba-b82a-fbb6fb7ce0b0)
-![links-2](https://github.com/ihsanberkozcan/links/assets/59116996/770f75b0-8d46-4afb-b8a5-0e3b606a8f6a)
-![links-3](https://github.com/ihsanberkozcan/links/assets/59116996/a918a02d-dff0-4d3c-9e2d-706655dd9e48)
-![links-4](https://github.com/ihsanberkozcan/links/assets/59116996/bb40f4f3-8570-4eaf-b818-eadee6335d71)
+![Links1](https://github.com/user-attachments/assets/88ccbafe-4d9a-4d08-bef7-d9f2d041bfee)
+![Links2](https://github.com/user-attachments/assets/ea34d292-e30a-4bad-bd6a-c33163e9adb6)
+![Links3](https://github.com/user-attachments/assets/c8732cf0-040e-433e-ba37-2dea6dec5998)
+![Links4](https://github.com/user-attachments/assets/f6f73a3e-ce17-4e24-bdd7-4c6476a3d1fa)
+![Links5](https://github.com/user-attachments/assets/dc3e2e5d-0050-4fb9-bd91-26b1bd66c53c)
+
 
 ## Authors
 
