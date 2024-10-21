@@ -22,7 +22,7 @@ export default async function Home() {
       <div className="flex flex-col min-h-screen">
         <Nav />
         <main className="flex-row flex-1 flex justify-center w-full h-max font-sans items-center gap-20">
-          <div className="relative max-w-10xl">
+          <div className="relative max-w-10xl mt-[-80px]">
             <h1 className="uppercase font-sans mb-10 text-black font-semibold  text-6xl tracking-tight text-left">
               All-in-One Link Solution
             </h1>
@@ -34,7 +34,7 @@ export default async function Home() {
           <div className="hidden lg:block mb-10">
 
             <Iphone15Pro
-              className="size-full"
+              className="size-full scale-75 mt-[-50px]"
               src="/ihsan.png"
             />
           </div>

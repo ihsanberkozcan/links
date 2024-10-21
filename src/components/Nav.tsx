@@ -32,18 +32,21 @@ export default function Nav() {
         <div className="hidden lg:flex ml-12">
           {session?.user ? (
             <a href="/my" className="py-2 px-5 mx-2 hover:bg-white rounded">
-              My
+              My Page
             </a>
           ) : null}
-          <a href="/pricing" className="py-2 px-5 mx-2 hover:bg-white rounded">
-            Pricing
-          </a>
-          <a href="/about" className="py-2 px-5 mx-2 hover:bg-white rounded">
-            About Us
-          </a>
-          <a href="/career" className="py-2 px-5 mx-2 hover:bg-white rounded">
-            Career
-          </a>
+          {session?.user ? (null) : (<>
+            <a href="/pricing" className="py-2 px-5 mx-2 hover:bg-white rounded">
+              Pricing
+            </a>
+            <a href="/about" className="py-2 px-5 mx-2 hover:bg-white rounded">
+              About Us
+            </a>
+            <a href="/career" className="py-2 px-5 mx-2 hover:bg-white rounded">
+              Career
+            </a>
+          </>)
+          }
         </div>
       </div>
       {session?.user ? (
@@ -61,7 +64,7 @@ export default function Nav() {
         </div>
       ) : (
         <>
-   
+
           {provider && (
             <button
               type="button"

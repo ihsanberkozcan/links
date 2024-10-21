@@ -215,27 +215,38 @@ export default function MyPage() {
               </a>
             </div>
 
-            <div className="p-3 bg-slate-800 rounded-3xl">
-              {userData.username && loading ? (
-                <iframe
-                  key={iframeKey}
-                  ref={mobile}
-                  src={`/${userData.username}`}
-                  className="rounded-2xl w-full"
-                  style={{ aspectRatio: 9 / 16 }}
-                ></iframe>
-              ) : (
-                <p
-                  className="rounded-2xl w-full h-full bg-white flex justify-center items-center"
-                  style={{ aspectRatio: 9 / 16 }}
-                >
-                  <CgSpinner className="animate-spin w-10 h-10" />
-                </p>
-              )}
-            </div>
+
+            {userData.username && loading ? (
+
+              <div className="scale-75  mt-[-80px] ml-[-15px] relative mx-auto border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px] shadow-xl">
+                <div className="w-[148px] h-[18px] bg-gray-800 top-0 mt-[-1px] rounded-b-[1rem] left-1/2 -translate-x-1/2 absolute"></div>
+                <div className="h-[46px] w-[3px] bg-gray-800 absolute -start-[17px] top-[124px] rounded-s-lg"></div>
+                <div className="h-[46px] w-[3px] bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg"></div>
+                <div className="h-[64px] w-[3px] bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg"></div>
+                <div className="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white dark:bg-gray-800">
+                  <iframe
+                    key={iframeKey}
+                    ref={mobile}
+                    src={`/${userData.username}`}
+                    className="w-full h-full"
+         
+                  ></iframe>
+                </div>
+              </div>
+
+
+            ) : (
+              <p
+                className="rounded-2xl w-full h-full bg-white flex justify-center items-center"
+                style={{ aspectRatio: 9 / 16 }}
+              >
+                <CgSpinner className="animate-spin w-10 h-10" />
+              </p>
+            )}
           </div>
         </div>
       </div>
+
       <Footer />
     </div>
   );
