@@ -14,9 +14,6 @@ type Props = {
   params: { slug: string };
 };
 
-export const metadata: Metadata = {
-  title: "Settings",
-};
 
 export default function Settings({ params }: Props) {
   const router = useRouter();
