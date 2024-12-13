@@ -22,7 +22,6 @@ export default function EditLinkBorderRadius({
   const getRadius = async () => {
     const res = await fetch("/api/links/BorderRadius");
     const data = await res.json();
-    console.log(data);
     setSelected(data.radius);
   };
 

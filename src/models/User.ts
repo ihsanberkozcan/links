@@ -25,6 +25,7 @@ const UserSchema = new Schema({
     type: String,
     default: "user"
   },
+  isBanned: { type: Boolean, default: false },
   borderRadius:
   {
     type: String,

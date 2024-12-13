@@ -17,6 +17,7 @@ export type datatype = {
   descriptionTextColor?: string
   linksTextColor?: string
   pageBackgroundColor?: string
+  isBanned: boolean
 
 };
 export type userdatatype = {

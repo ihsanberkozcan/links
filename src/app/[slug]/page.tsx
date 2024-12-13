@@ -72,7 +72,7 @@ export default async function Profile({ params }: Props) {
       ) : null}
 
       <div className="max-w-2xl w-full text-xl mt-16 mx-5">
-        {datas !== null ? (
+        {datas !== null && !datas.isBanned ? (
           <>
             <div className="flex flex-col items-center mb-10 w-full">
               <h1
@@ -113,6 +113,10 @@ export default async function Profile({ params }: Props) {
               </a>
             ))}
           </>
+        ) : datas && datas.isBanned ? (
+          <div className="flex w-full h-screen justify-center items-center text-5xl text-center font-bold">
+            This user account is banned
+          </div>
         ) : (
           <div className="flex w-full h-screen justify-center items-center text-5xl text-center font-bold">
             This account doesn't exist.🤷

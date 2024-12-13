@@ -36,7 +36,6 @@ export default function SearchUser({
   };
 
   const deleteSearch = async () => {
-    console.log("hehehe");
     setSearchValue("");
     setSeacrhText("");
     setClear(true);

@@ -10,7 +10,7 @@ import SearchUser from "@/components/SearchUser";
 import RestrictedUsernames from "@/components/RestrictedUsernames";
 
 export default function Admin() {
-  const [allUsers, setAllUsers] = useState([]);
+  const [allUsers, setAllUsers] = useState<any>([]);
   const [page, setPage] = useState("allUser");
   const { data: session, status } = useSession();
   const [searchText, setSeacrhText] = useState("");
@@ -43,6 +43,45 @@ export default function Admin() {
       setAllUsers(allUsers?.filter((user: any) => user.id !== id));
     }
   };
+  const handleBan = async (id: string) => {
+    const res = await fetch("/api/admin/banUser", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ id: id }),
+    });
+    if (res.status == 200) {
+
+      setAllUsers(
+        allUsers?.map((user: any) => 
+          user.id === id 
+            ? { ...user, isBanned: true } 
+            : user 
+        )
+      );
+    }
+  };
+  const handleUnBan = async (id: string) => {
+    const res = await fetch("/api/admin/unbanUser", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ id: id }),
+    });
+    if (res.status == 200) {
+
+
+      setAllUsers(
+        allUsers?.map((user: any) => 
+          user.id === id 
+            ? { ...user, isBanned: false } 
+            : user 
+        )
+      );
+    }
+  };
 
   if (status === "loading") {
     return <Loading />;
@@ -73,7 +112,7 @@ export default function Admin() {
               userNumber={allUsers.length}
               getAllUser={getAllUser}
             />
-            <Users allUsers={allUsers} handleDelete={handleDelete} />
+            <Users allUsers={allUsers} handleDelete={handleDelete} handleBan={handleBan} handleUnBan={handleUnBan}/>
           </>
         ) : (
           <RestrictedUsernames />

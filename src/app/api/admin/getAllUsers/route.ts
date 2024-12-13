@@ -28,11 +28,12 @@ export async function POST(request: Request) {
       }
 
       const userResponce = allUsers.map(
-        (user: { _id: any; username: string; email: string }) => {
+        (user: { _id: any; username: string; email: string,isBanned: boolean }) => {
           return {
             id: user._id.toString(),
             name: user.username,
             email: user.email,
+            isBanned: user.isBanned
           };
         }
       );

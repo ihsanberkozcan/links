@@ -14,7 +14,6 @@ type Props = {
   params: { slug: string };
 };
 
-
 export default function Settings({ params }: Props) {
   const router = useRouter();
   const [username, setUsername] = useState<string>("");
