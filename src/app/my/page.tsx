@@ -11,6 +11,10 @@ import { useSession, getSession } from "next-auth/react";
 import Loading from "@/components/Loading";
 import AccessDenied from "@/components/AccessDenied";
 import EditLinkBorderRadius from "@/components/EditLinkStyle";
+import icon from '../../components/icons/icon.svg';
+import Image from 'next/image'
+import { IoCopyOutline } from "react-icons/io5";
+import toast, { Toaster } from 'react-hot-toast';
 export default function MyPage() {
   const mobile = useRef<any>(null);
   const [datas, setDatas] = useState<MyObjectType>({});
@@ -116,6 +120,12 @@ export default function MyPage() {
   if (status === "unauthenticated") {
     return <AccessDenied />;
   }
+
+  const notify = () => {
+    toast.success('Copy successful!');
+    const host = window.location.host;
+    navigator.clipboard.writeText(host + "/" + userData.username)
+  };
   return (
     <div className="">
       <Nav />
@@ -204,7 +214,7 @@ export default function MyPage() {
           </div>
         </div>
         <div className="lg:ml-8 w-full lg:w-1/4 ">
-          <div className="lg:fixed z-10 w-full lg:w-1/5">
+          <div className="lg:fixed z-10 w-full lg:w-1/5 flex justify-end flex-col">
             <div className="ml-auto w-fit">
               <a
                 href={`/${userData.username}`}
@@ -218,7 +228,7 @@ export default function MyPage() {
 
             {userData.username && loading ? (
 
-              <div className="scale-75  mt-[-80px] ml-[-15px] relative mx-auto border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px] shadow-xl">
+              <div className="mt-[10px] relative mx-auto border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px] shadow-xl">
                 <div className="w-[148px] h-[18px] bg-gray-800 top-0 mt-[-1px] rounded-b-[1rem] left-1/2 -translate-x-1/2 absolute"></div>
                 <div className="h-[46px] w-[3px] bg-gray-800 absolute -start-[17px] top-[124px] rounded-s-lg"></div>
                 <div className="h-[46px] w-[3px] bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg"></div>
@@ -229,10 +239,23 @@ export default function MyPage() {
                     ref={mobile}
                     src={`/${userData.username}`}
                     className="w-full h-full"
-         
+
                   ></iframe>
+
+
+                </div>
+                <div className="mt-5 p-2 flex flex-row items-center justify-between">
+                  <div className="flex gap-1 items-center">
+                    <Image
+                      alt="logo"
+                      src={icon} width={30}
+                      height={30} />
+                    <div>{userData.username}</div>
+                  </div>
+                  <button className=" text-white py-2 px-2 rounded-lg" onClick={notify}><IoCopyOutline size={20} color="#000"/></button>
                 </div>
               </div>
+
 
 
             ) : (
@@ -246,7 +269,7 @@ export default function MyPage() {
           </div>
         </div>
       </div>
-
+      <Toaster />
       <Footer />
     </div>
   );
