@@ -77,7 +77,7 @@ export default function MyLinks({
                 {...provided.droppableProps}
               >
                 {datas?.links?.map((data: Links, index: number) => (
-                  <Link data={data} index={index} deleteLink={deleteLink} />
+                  <Link key={index} data={data} index={index} deleteLink={deleteLink} />
                 ))}
                 {provided.placeholder}
               </div>

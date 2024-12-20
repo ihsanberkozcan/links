@@ -4,6 +4,7 @@ import { Draggable } from "react-beautiful-dnd";
 import { Links } from "@/types/types";
 import Trash from "./icons/Trash";
 import ChartBar from "./icons/ChartBar";
+import { RxDragHandleDots2 } from "react-icons/rx";
 
 type LinkProps = {
   data: Links;
@@ -19,9 +20,13 @@ export default function Link({ index, data, deleteLink }: LinkProps) {
           ref={provided.innerRef}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
-          className="flex justify-between w-full mb-3 bg-white px-2 py-2 lg:px-10 lg:py-5 rounded-lg drop-shadow-sm border"
+          className="flex justify-between w-full mb-3 bg-white px-2 py-2 lg:px-10 lg:py-5 rounded-lg drop-shadow-sm border "
         >
+          <div className="flex items-center justify-center">
+            <RxDragHandleDots2 size={25}/>
+          </div>
           <div className="w-full flex justify-center">
+
             <div>
               <div className="ml-3 text-center w-full text-sm lg:text-lg">
                 {data.urlDesc}
@@ -30,6 +35,7 @@ export default function Link({ index, data, deleteLink }: LinkProps) {
                 className="ml-3 text-center text-xs lg:text-lg flex justify-center items-center underline underline-offset-1 text-sky-500"
                 href={data.url}
               >
+
                 <div className="flex lg:hidden">
                   {truncateText(data.url, 30)}
                 </div>
