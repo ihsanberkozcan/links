@@ -1,5 +1,5 @@
 import { truncateText } from "@/utils/truncateText";
-import React from "react";
+import React, { useState } from "react";
 import { Draggable } from "react-beautiful-dnd";
 import { Links } from "@/types/types";
 import Trash from "./icons/Trash";
@@ -13,20 +13,31 @@ type LinkProps = {
 };
 
 export default function Link({ index, data, deleteLink }: LinkProps) {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <Draggable key={index} draggableId={`link-${index}`} index={index}>
-      {(provided) => (
+      {(provided, snapshot) => (
         <div
           ref={provided.innerRef}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
-          className="flex justify-between w-full mb-3 bg-white px-2 py-2 lg:px-10 lg:py-5 rounded-lg drop-shadow-sm border "
+          className="flex justify-between w-full mb-3 bg-white px-2 py-2 lg:px-10 lg:py-5 rounded-lg drop-shadow-sm border"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
         >
           <div className="flex items-center justify-center">
-            <RxDragHandleDots2 size={25}/>
+            {snapshot.isDragging || isHovered ? (
+              <RxDragHandleDots2
+                size={25}
+                style={{
+                  opacity: snapshot.isDragging || isHovered ? 1 : 0,
+                  transition: "opacity 0.2s ease",
+                }}
+              />
+            ) : <div style={{width:25}}></div>}
           </div>
           <div className="w-full flex justify-center">
-
             <div>
               <div className="ml-3 text-center w-full text-sm lg:text-lg">
                 {data.urlDesc}
@@ -35,7 +46,6 @@ export default function Link({ index, data, deleteLink }: LinkProps) {
                 className="ml-3 text-center text-xs lg:text-lg flex justify-center items-center underline underline-offset-1 text-sky-500"
                 href={data.url}
               >
-
                 <div className="flex lg:hidden">
                   {truncateText(data.url, 30)}
                 </div>
